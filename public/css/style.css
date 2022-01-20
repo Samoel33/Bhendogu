@@ -7,6 +7,7 @@
     --button: rgba(15, 214, 240, 1);
     --navigation: rgba(21, 56, 76, 0.7);
     --navigation-list: white;
+    --activeLink: #135578;
 }
 
 *,
@@ -53,6 +54,7 @@ body {
     width: inherit;
     height: 100vh;
     background-color: var(--overRelay);
+    animation: overRelayOpacity 0.8s ease-in-out 1;
 }
 
 .content {
@@ -61,6 +63,7 @@ body {
     transform: translate(20%, 40%);
     z-index: 3;
     width: 50%;
+    animation: overRelayOpacity 2s ease-in-out 1;
 }
 
 .title {
@@ -68,6 +71,8 @@ body {
     color: var(--heading_text);
     margin: 0 0 1rem 0;
     font-weight: bold;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .little_about_us {
@@ -103,4 +108,76 @@ body {
     top: 0;
     z-index: 4;
     background-color: var(--navigation);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-left: 1rem;
+    width: 15rem;
+    height: 5rem;
+    border-radius: 0.3rem;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.navigation-bar-lists {
+    list-style: none;
+    width: 82.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2rem;
+}
+
+.lists {
+    width: 15.7rem;
+    height: 5.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lists a:link,
+.lists a:visited {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    letter-spacing: .15rem;
+    font-weight: bold;
+    color: var(--navigation-list);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lists:last-child {
+    width: 18rem;
+    background-color: var(--button);
+}
+
+.active {
+    background-color: var(--activeLink);
+}
+
+
+/* ANIMATIONS all containers requiring */
+
+@keyframes overRelayOpacity {
+    from {
+        widhth: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 100%;
+    }
 }
