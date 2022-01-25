@@ -50,47 +50,6 @@ body {
     flex-direction: column;
 }
 
-.main-container-1,
-.main-container-2,
-.main-container-3 {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    margin: 0 0 1rem 0;
-}
-
-.cover-image,
-.cover-image-1,
-.cover-image-2,
-.cover-image-3 {
-    position: absolute;
-    height: 100vh;
-    width: 60%;
-    background-position: right;
-    left: 43%;
-    top: -10%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.cover-image-2 {
-    background-image: url('../images/SWITCHGEAR.jpg');
-    top: 0%;
-}
-
-.cover-image,
-.cover-image-1 {
-    background-image: url('../images/transformer-768x796.jpg');
-}
-
-.cover-image-3 {
-    background-image: url('../images/relay.jpg');
-    top: 0%;
-}
-
 .overRelay {
     position: absolute;
     z-index: 2;
@@ -149,11 +108,36 @@ body {
     height: 10vh;
     position: absolute;
     top: 0;
-    z-index: 4;
+    z-index: 10;
     background-color: var(--navigation);
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.navigation-bar.sticky {
+    position: fixed;
+}
+
+.burger {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    z-index: 15;
+    right: 1rem;
+    background-color: var(--body_text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.line {
+    width: 3rem;
+    height: 0.5rem;
+    background-color: var(--button);
+    margin-bottom: 0.2rem;
 }
 
 .logo {
@@ -225,5 +209,134 @@ body {
     }
 }
 
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
 
 /* SERVICES PAGE */
+
+.main-container-1 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 0 0 1rem 0;
+    overflow: hidden;
+}
+
+.cover-image,
+.cover-image-1 {
+    position: absolute;
+    height: 100vh;
+    width: 60%;
+    background-position: right;
+    left: 43%;
+    top: -10%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hide-section {
+    opacity: 0;
+    /* transform: translateX(100%); */
+    transition: opacity 0.8s ease-in-out;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.cover-image-1 {
+    top: 0%;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.animate-in {
+    animation: slideIn 1s ease-in-out 1;
+    will-change: animation;
+}
+
+.cover-image {
+    background-image: url('../images/transformer-768x796.jpg');
+}
+
+.tabs {
+    position: absolute;
+    z-index: 5;
+    width: 50%;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    margin-top: 7rem;
+    top: 80%;
+    left: 2%;
+}
+
+.tab:visited,
+.tab:link {
+    text-decoration: none;
+    width: 21.7rem;
+    height: 5rem;
+    border-radius: 2rem;
+    background-color: var(--navigation-list);
+    border: 5px solid var(--button);
+    color: var(--heading_text);
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*MEIDAL QUERIES*/
+
+@media only screen and (max-width:43em) {
+    html {
+        font-size: 40%;
+    }
+    .main-container-1,
+    .overRelay {
+        height: 50vh;
+    }
+    .content {
+        width: 100%;
+        transform: translate(0.5rem, 40%);
+    }
+    .cover-image-1,
+    .cover-image {
+        width: 100%;
+        left: 0;
+        opacity: 1;
+        transform: translateX(0);
+        height: 50vh;
+    }
+    .image {
+        height: 100%;
+    }
+    .navigation-bar-lists {
+        transform: translateY(100%);
+        width: 0;
+        opacity: 0;
+        will-change: transform opacity width;
+    }
+    .burger {
+        display: flex;
+    }
+    .tabs {
+        display: none;
+    }
+}
