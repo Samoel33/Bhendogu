@@ -61,4 +61,49 @@ burger.addEventListener('click', (e) => {
     burger.classList.toggle('active-burger');
     navigationBarList.classList.toggle('active-Nav');
     lines.classList.add('rotateLine');
-})
+});
+
+// CARD SLIDES
+const slider = function() {
+    const slides = document.querySelectorAll('#profiles .content');
+    const btnLeft = document.querySelector('.nextPage-left');
+    const btnRight = document.querySelector('.nextPage-right');
+
+    let curSlide = 0;
+    const maxSlide = slides.length;
+
+    const goToSlide = function(slide) {
+        slides.forEach(
+            (s, i) => (s.style.transform = `translateX(${200 * (i - slide)}%)`)
+        );
+    };
+    const nextSlide = function() {
+        if (curSlide === maxSlide - 1) {
+            curSlide = 0;
+        } else {
+            curSlide++;
+        }
+        goToSlide(curSlide);
+
+    };
+    const prevSlide = function() {
+        if (curSlide === 0) {
+            curSlide = maxSlide - 1;
+        } else {
+            curSlide--;
+        }
+        goToSlide(curSlide);
+    };
+    const init = function() {
+        goToSlide(0);
+    };
+    init();
+    btnRight.addEventListener('click', nextSlide);
+    btnLeft.addEventListener('click', prevSlide);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') prevSlide();
+        e.key === 'ArrowRight' && nextSlide();
+    });
+
+}
+slider();

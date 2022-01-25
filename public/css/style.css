@@ -520,3 +520,148 @@ textarea {
         height: auto;
     }
 }
+
+
+/* ABOUT US Styling*/
+
+.nextPage {
+    position: absolute;
+    z-index: 100;
+    width: 4rem;
+    height: 6rem;
+    background-color: var(--heading_text);
+    left: 50%;
+    top: 90%;
+    border-radius: 2rem;
+}
+
+.prevPage {
+    position: absolute;
+    z-index: 100;
+    width: 4rem;
+    height: 6rem;
+    background-color: var(--heading_text);
+    left: 50%;
+    top: 90%;
+    border-radius: 2rem;
+}
+
+.nextPage a:link,
+.nextPage a:visited,
+.prevPage a:link,
+.prevPage a:visited {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+#card {
+    width: 50%;
+    height: 60%;
+    background-color: var(--overRelay);
+    border-radius: 2rem;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s;
+}
+
+@media only screen and (max-width:37.5em) {
+    #card {
+        width: 80%;
+        height: 40%;
+        left: 10%;
+        padding-right: 1.3rem;
+    }
+}
+
+.circle img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.circle {
+    position: absolute;
+    top: -30%;
+    left: 33%;
+    width: 20rem;
+    border-radius: 50%;
+}
+
+#profiles .nextPage-left,
+#profiles .nextPage-right {
+    position: absolute;
+    z-index: 100;
+    width: 4rem;
+    height: 6rem;
+    background-color: var(--heading_text);
+    left: 15%;
+    top: 50%;
+    border-radius: 2rem;
+    color: white;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transform: rotate(90deg);
+}
+
+#profiles .nextPage-right {
+    left: 75%;
+    transform: rotate(-90deg);
+}
+
+@media only screen and (max-width:37.5em) {
+    #profiles .nextPage-left {
+        left: 2%;
+        height: 8rem;
+        width: 4rem;
+    }
+    #profiles .nextPage-right {
+        left: 90%;
+        height: 8rem;
+        width: 4rem;
+    }
+}
+
+.name {
+    margin: 8rem 0 2rem 0rem;
+    text-align: center;
+    color: var(--heading_text)
+}
+
+.little_about_me {
+    color: rgba(255, 255, 255, 0.493);
+    max-width: 75ch;
+    font-size: 1.8rem;
+    padding-left: 3rem;
+}
+
+@media only screen and (max-width:37.5em) {
+    .little_about_me {
+        padding-right: 1rem;
+    }
+    .name {
+        margin: 3rem 0 2rem 0;
+    }
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    max-width: 100rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
