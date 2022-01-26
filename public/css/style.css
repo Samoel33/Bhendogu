@@ -720,7 +720,28 @@ textarea {
     width: 4rem;
     height: 6rem;
     background-color: var(--heading_text);
-    left: 50%;
-    top: 45%;
+    transform: translateY(40vh);
     border-radius: 2rem;
+    color: var(--heading_text);
+    font-size: 2rem;
+    text-align: center;
+}
+
+.galleryContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.galleryContainer img {
+    width: 32.3%;
+    height: 40rem;
+    margin: 0.5rem;
+}
+
+@media only screen and (max-width:37.5em) {
+    .galleryContainer>img {
+        width: 47%;
+        height: 20rem;
+    }
 }
