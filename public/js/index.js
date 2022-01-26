@@ -115,7 +115,7 @@ const slideContainer = document.querySelector('.autoSlider');
 const textSlide = document.querySelector('.we-do .title');
 const imageSlides = document.querySelector('.autoSlider img');
 const clickImage = document.querySelectorAll('.galleryContainer img');
-
+console.log(clickImage);
 const arraySlide = ['SLIDE1.jpg', 'SLIDE2.jpg', 'SLIDE3.jpg', 'SLIDE4.jpg', 'SLIDE5.jpg'];
 const arrayText = ['TESTING OF SWITCHGEAR', 'CT TESTING', 'VT TESTING', 'BREAKER TESTING', 'P. TRANSFORMER TESTING'];
 var i = 0;

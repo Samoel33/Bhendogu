@@ -692,6 +692,7 @@ textarea {
 
 .main-container-2 {
     height: 100vh;
+    position: relative;
 }
 
 .autoSlider img {
@@ -821,10 +822,11 @@ textarea {
     .zoomImage {
         position: absolute;
         z-index: 100;
-        transform: scale(3);
-        top: 26%;
-        left: 5%;
-        transition: transform 0.8s ease-in-out;
+        object-fit: cover;
+        transform: scaleX(2)scaleY(3);
+        top: 34%;
+        left: 25%;
+        transition: width 0.8s ease-in-out, height 0.8s ease-in-out;
     }
     @keyframes scaleImage {
         from {
