@@ -64,46 +64,76 @@ burger.addEventListener('click', (e) => {
 });
 
 // CARD SLIDES
-const slider = function() {
-    const slides = document.querySelectorAll('#profiles .content');
-    const btnLeft = document.querySelector('.nextPage-left');
-    const btnRight = document.querySelector('.nextPage-right');
+if (document.querySelector('#card')) {
 
-    let curSlide = 0;
-    const maxSlide = slides.length;
+    const slider = function() {
+        const slides = document.querySelectorAll('#profiles .content');
+        const btnLeft = document.querySelector('.nextPage-left');
+        const btnRight = document.querySelector('.nextPage-right');
+        let curSlide = 0;
+        const maxSlide = slides.length;
 
-    const goToSlide = function(slide) {
-        slides.forEach(
-            (s, i) => (s.style.transform = `translateX(${200 * (i - slide)}%)`)
-        );
-    };
-    const nextSlide = function() {
-        if (curSlide === maxSlide - 1) {
-            curSlide = 0;
-        } else {
-            curSlide++;
-        }
-        goToSlide(curSlide);
+        const goToSlide = function(slide) {
+            slides.forEach(
+                (s, i) => (s.style.transform = `translateX(${200 * (i - slide)}%)`)
+            );
+        };
+        const nextSlide = function() {
+            if (curSlide === maxSlide - 1) {
+                curSlide = 0;
+            } else {
+                curSlide++;
+            }
+            goToSlide(curSlide);
 
-    };
-    const prevSlide = function() {
-        if (curSlide === 0) {
-            curSlide = maxSlide - 1;
-        } else {
-            curSlide--;
-        }
-        goToSlide(curSlide);
-    };
-    const init = function() {
-        goToSlide(0);
-    };
-    init();
-    btnRight.addEventListener('click', nextSlide);
-    btnLeft.addEventListener('click', prevSlide);
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') prevSlide();
-        e.key === 'ArrowRight' && nextSlide();
-    });
+        };
+        const prevSlide = function() {
+            if (curSlide === 0) {
+                curSlide = maxSlide - 1;
+            } else {
+                curSlide--;
+            }
+            goToSlide(curSlide);
+        };
+        const init = function() {
+            goToSlide(0);
+        };
+        init();
+        btnRight.addEventListener('click', nextSlide);
+        btnLeft.addEventListener('click', prevSlide);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') prevSlide();
+            e.key === 'ArrowRight' && nextSlide();
+        });
 
+    }
+    slider();
 }
-slider();
+
+//GALLERY slider
+const slideContainer = document.querySelector('.autoSlider');
+const textSlide = document.querySelector('.we-do .title');
+const imageSlides = document.querySelector('.autoSlider img');
+
+const arraySlide = ['SLIDE1.jpg', 'SLIDE2.jpg', 'SLIDE3.jpg', 'SLIDE4.jpg', 'SLIDE5.jpg'];
+const arrayText = ['TESTING OF SWITCHGEAR', 'CT TESTING', 'VT TESTING', 'BREAKER TESTING', 'P. TRANSFORMER TESTING'];
+var i = 0;
+var j = 0;
+
+if (slideContainer) {
+    function textIn() {
+        textSlide.textContent = arrayText[i];
+        if (i < arrayText.length - 1) i++;
+        else i = 0;
+        setTimeout("textIn()", 3000);
+    }
+    textIn();
+
+    function imageIn() {
+        imageSlides.src = `../public/images/site/SLIDE/${arraySlide[i]}`;
+        if (j < arraySlide.length - 1) j++;
+        else j = 0;
+        setTimeout('imageIn()', 3000);
+    }
+    imageIn();
+}

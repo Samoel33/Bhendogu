@@ -665,3 +665,62 @@ textarea {
     position: relative;
     overflow: hidden;
 }
+
+
+/*GALLERY SLIDE */
+
+.autoSlider {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.autoSlider img {
+    width: 70%;
+    height: 80%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.we-do {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+}
+
+.we-do .title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scrollTo a:link,
+.scrollTo a:visited {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+.scrollTo {
+    position: absolute;
+    z-index: 100;
+    width: 4rem;
+    height: 6rem;
+    background-color: var(--heading_text);
+    left: 50%;
+    top: 45%;
+    border-radius: 2rem;
+}
