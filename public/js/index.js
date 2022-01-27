@@ -115,7 +115,7 @@ const slideContainer = document.querySelector('.autoSlider');
 const textSlide = document.querySelector('.we-do .title');
 const imageSlides = document.querySelector('.autoSlider img');
 const clickImage = document.querySelectorAll('.galleryContainer img');
-console.log(clickImage);
+const overRealy = document.querySelectorAll('.galleryContainer .overRelay-hidden');
 const arraySlide = ['SLIDE1.jpg', 'SLIDE2.jpg', 'SLIDE3.jpg', 'SLIDE4.jpg', 'SLIDE5.jpg'];
 const arrayText = ['TESTING OF SWITCHGEAR', 'CT TESTING', 'VT TESTING', 'BREAKER TESTING', 'P. TRANSFORMER TESTING'];
 var i = 0;
@@ -126,7 +126,7 @@ if (slideContainer) {
         textSlide.textContent = arrayText[i];
         if (i < arrayText.length - 1) i++;
         else i = 0;
-        setTimeout("textIn()", 3000);
+        setTimeout("textIn()", 3500);
     }
     textIn();
 
@@ -134,14 +134,25 @@ if (slideContainer) {
         imageSlides.src = `../public/images/site/SLIDE/${arraySlide[i]}`;
         if (j < arraySlide.length - 1) j++;
         else j = 0;
-        setTimeout('imageIn()', 3000);
+
+        setTimeout('imageIn()', 3500);
     }
     imageIn();
     //IMAGE CLICKABLE GALLERY
+
     clickImage.forEach(imageCliked => {
         imageCliked.addEventListener('click', () => {
-            console.log('zoomImage');
             imageCliked.classList.toggle('zoomImage');
+
+            function relayFun() {
+                overRealy.forEach(relay => {
+                    relay.classList.toggle("show");
+                })
+            }
+            if (imageCliked) {
+
+                relayFun();
+            }
         });
     })
 
